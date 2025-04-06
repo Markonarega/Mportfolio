@@ -33,7 +33,8 @@ export const Interface = () => {
       <AboutSection />
       <SkillsSection />
       <Section>
-        <h1>Projects</h1>
+      <ProjectsSection />
+
       </Section>
       <ContactSection />
     </div>
@@ -123,6 +124,56 @@ const languages = [
     level: 100,
   },
 ];
+const projects = [
+  {
+    title: "Portfolio Website",
+    description: "A personal portfolio website built with React and Tailwind CSS showcasing my skills and projects.",
+    link: "#",
+  },
+  {
+    title: "Todo App",
+    description: "A full-stack task management app with React, Node.js, and MongoDB.",
+    link: "#",
+  },
+  {
+    title: "E-commerce Store",
+    description: "An e-commerce frontend built with Next.js and Tailwind CSS.",
+    link: "#",
+  },
+];
+
+const ProjectsSection = () => {
+  return (
+    <Section>
+      <h2 className="text-5xl font-bold mb-10">Projects</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            className="p-6 bg-white rounded-2xl shadow-md border border-gray-200"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, delay: index * 0.2 },
+            }}
+          >
+            <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+            <p className="text-gray-600 mb-4">{project.description}</p>
+            <a
+              href={project.link}
+              className="text-indigo-600 font-semibold hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Project
+            </a>
+          </motion.div>
+        ))}
+      </div>
+    </Section>
+  );
+};
 
 const SkillsSection = () => {
   return (
@@ -226,18 +277,19 @@ const ContactSection = () => {
     <Section>
       <h2 className="text-5xl font-bold">Contact me</h2>
       <div className="mt-8 p-8 rounded-md bg-white w-96 max-w-full">
-        <form>
-          <label for="name" className="font-medium text-gray-900 block mb-1">
+        <form action="https://formspree.io/f/xdkepezg" method="POST">
+          <label htmlFor="name" className="font-medium text-gray-900 block mb-1">
             Name
           </label>
           <input
             type="text"
             name="name"
             id="name"
+            required
             className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
           />
           <label
-            for="email"
+            htmlFor="email"
             className="font-medium text-gray-900 block mb-1 mt-8"
           >
             Email
@@ -246,10 +298,11 @@ const ContactSection = () => {
             type="email"
             name="email"
             id="email"
+            required
             className="block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
           />
           <label
-            for="email"
+            htmlFor="message"
             className="font-medium text-gray-900 block mb-1 mt-8"
           >
             Message
@@ -257,9 +310,10 @@ const ContactSection = () => {
           <textarea
             name="message"
             id="message"
+            required
             className="h-32 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 p-3"
           />
-          <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16 ">
+          <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16">
             Submit
           </button>
         </form>
