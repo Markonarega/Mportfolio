@@ -128,12 +128,12 @@ const projects = [
   {
     title: "Portfolio Website",
     description: "A personal portfolio website built with React and Tailwind CSS showcasing my skills and projects.",
-    link: "#",
+    link: "https://mportfolio-bice.vercel.app",
   },
   {
-    title: "Todo App",
-    description: "A full-stack task management app with React, Node.js, and MongoDB.",
-    link: "#",
+    title: "HooBank Front-end",
+    description: "Modern bank landing page built with React and Tailwind CSS showcasing responsive design, clean UI, and smooth animations.",
+    link: "https://mark-theta.vercel.app",
   },
   {
     title: "E-commerce Store",
